@@ -1,0 +1,4 @@
+config.php
+analyticstracking.php
+uploads/*.csv
+downloads/*.csv
