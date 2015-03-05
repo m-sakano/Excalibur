@@ -5,6 +5,65 @@ require_once('functions.php');
 
 session_start();
 
+/**
+ * 検索データをテーブル表示する
+ * 
+ */
+function showSearchResult() {
+
+    $dbh = connectDb();
+    $sql = "select * from cards";
+    $stmt = $dbh->query("SET NAMES utf8;");
+    $stmt = $dbh->prepare($sql);
+    //$params = array(":id" => $_SESSION['me']['google_user_id']);
+    //$stmt->execute($params);
+    $stmt->execute();
+
+    echo '<table class="table table-striped table-bordered">';
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th>番号</th>';
+    echo '<th>称号</th>';
+    echo '<th>名前</th>';
+    echo '<th>レア</th>';
+    echo '<th>コスト</th>';
+    echo '<th>アーサー</th>';
+    echo '<th>タイプ</th>';
+    echo '<th>属性</th>';
+    echo '<th>ＨＰ</th>';
+    echo '<th>物理</th>';
+    echo '<th>魔法</th>';
+    echo '<th>回復</th>';
+    echo '<th>通常スキル</th>';
+    echo '<th>覚醒スキル</th>';
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+    while($record = $stmt->fetch()) {
+        $line = '';
+        $line .= '<tr>';
+        $line .= '<td>'.$record['Number'].'</td>';
+        $line .= '<td>'.$record['Title'].'</td>';
+        $line .= '<td>'.$record['Name'].'</td>';
+        $line .= '<td>'.$record['Rare'].'</td>';
+        $line .= '<td>'.$record['Cost'].'</td>';
+        $line .= '<td>'.$record['Arthur'].'</td>';
+        $line .= '<td>'.$record['Type'].'</td>';
+        $line .= '<td>'.$record['Attribute'].'</td>';
+        $line .= '<td>'.$record['BonusHP'].'</td>';
+        $line .= '<td>'.$record['BonusPhysical'].'</td>';
+        $line .= '<td>'.$record['BonusMagic'].'</td>';
+        $line .= '<td>'.$record['BonusHeal'].'</td>';
+        $line .= '<td>'.$record['SkillNormal'].'</td>';
+        $line .= '<td>'.$record['SkillSpecial'].'</td>';
+        $line .= '</tr>';
+        echo $line;
+    }
+    $stmt->closeCursor();
+    echo '</tbody>';
+    echo '</table>';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -51,9 +110,6 @@ session_start();
 		            この修正はExcaliburを利用している全てのユーザーに影響があります。<br>
 		            ダウンロードしたファイルをバックアップとして、その複製を編集しアップロードしてください。
 		            アップロード後に文字化けなどデータベースを破壊してしまった場合は、バックアップを再度アップロードしてください。</p>
-		        <p>カードは最大レアリティ、最大レベルのデータのみを登録してください。
-		            デッキ構成に含められない、チアリー、キラリーなどのカードは登録しないでください。
-		            これはデッキ構成のときに選択肢が多くなりすぎてしまうことを回避するためです。</p>
 		        <p>登録するデータはゲーム画面に表示されるものからの引用とし、カードの名前、数値などのデータを改変しないようにお願いします。</p>
 		    <h2>データファイル（CSV）の仕様</h2>
     		    <p>文字コード：SJIS、改行コード：CR、区切り文字：,（カンマ）</br>
@@ -75,6 +131,15 @@ session_start();
 					<input type="submit" value="アップロード" class="btn btn-primary" />
 				</div>
 			</form>
+			<h2>データの同期</h2>
+			    <p>データベースをWikiのデータと同期します。</p>
+			    <p>この処理には時間がかかります。カード100枚あたり10分程度が目安です。</p>
+			    <p>Wikiサイトへの負荷を低減するためにアクセス間隔を設定しているからです。</p>
+			    <form action="scraping.php" method="get">
+			        <div class="form-group">
+			            <input type="submit" value="同期を開始" class="btn btn-primary" />
+			        </div>
+			    </form>
 			<h2>データベース登録カード一覧</h2>
 			    <?php showSearchResult(); ?>
 		</div>
