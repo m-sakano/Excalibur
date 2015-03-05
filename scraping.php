@@ -41,7 +41,7 @@ function getCardData($url, $number) {
 	echo $name . "\n";
 	
 	// Rare
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[1]/div[2]/div[1]/div/p[1]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wikidb_top_pc "]/p[1]') as $val) {
 		$rare = $val->nodeValue;
 	}
 	$rare = mb_substr($rare, 6, mb_strlen($rare) - 6);
@@ -70,69 +70,69 @@ function getCardData($url, $number) {
 	echo $rare . "\n";
 	
 	// Cost
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[1]/div[2]/div[1]/div/p[2]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wikidb_top_pc "]/p[2]') as $val) {
 		$cost = $val->nodeValue;
 	}
 	$cost = mb_substr($cost, 4, 1);
 	echo $cost . "\n";
 	
 	// Arthur
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[1]/div[2]/div[1]/div/p[3]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wikidb_top_pc "]/p[3]') as $val) {
 		$arthur = $val->nodeValue;
 	}
 	$arthur = mb_substr($arthur,  8, 2);
 	echo $arthur . "\n";
 	
 	// Type
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[1]/div[2]/div[1]/div/p[4]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wikidb_top_pc "]/p[4]') as $val) {
 		$type = $val->nodeValue;
 	}
 	$type = mb_substr($type, 4, 1);
 	echo $type . "\n";
 	
 	// Attribute
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[1]/div[2]/div[1]/p[1]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wikidb_top_area ui_clearfix "]/p[1]') as $val) {
 		$attribute = $val->nodeValue;
 	}
 	$attribute = mb_substr($attribute, 3, 1);
 	echo $attribute . "\n";
 	
 	// BonusHP
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[1]/div[2]/div[2]/p[1]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wikidb_middle_area ui_clearfix"]/p[1]') as $val) {
 		$bonusHP = $val->nodeValue;
 	}
 	$bonusHP = mb_substr($bonusHP, 5, mb_strlen($bonusHP) - 5);
 	echo $bonusHP . "\n";
 	
 	// BonusPhysical
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[1]/div[2]/div[2]/p[2]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wikidb_middle_area ui_clearfix"]/p[2]') as $val) {
 		$bonusPhysical = $val->nodeValue;
 	}
 	$bonusPhysical = mb_substr($bonusPhysical, 9, mb_strlen($bonusPhysical) - 9);
 	echo $bonusPhysical . "\n";
 	
 	// BonusMagic
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[1]/div[2]/div[2]/p[3]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wikidb_middle_area ui_clearfix"]/p[3]') as $val) {
 		$bonusMagic = $val->nodeValue;
 	}
 	$bonusMagic = mb_substr($bonusMagic, 9, mb_strlen($bonusMagic) - 9);
 	echo $bonusMagic . "\n";
 	
 	// BonusHeal
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[1]/div[2]/div[2]/p[4]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wikidb_middle_area ui_clearfix"]/p[4]') as $val) {
 		$bonusHeal = $val->nodeValue;
 	}
 	$bonusHeal = mb_substr($bonusHeal , 6, mb_strlen($bonusHeal) - 6);
 	echo $bonusHeal . "\n";
 	
 	// SkillNormal
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[2]/p[1]/span[2]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wiki_db_bottom_wrapper "]/p[1]/span[2]') as $val) {
 		$skillNormal = $val->nodeValue;
 	}
 	echo $skillNormal . "\n";
 	
 	// SkillSpecial
-	foreach ($xpath->query('//*[@id="js_async_main_column_text"]/div[2]/p[2]/span[2]') as $val) {
+	foreach ($xpath->query('//div[@class="ui_wiki_db_bottom_wrapper "]/p[2]/span[2]') as $val) {
 		$skillSpecial = $val->nodeValue;
 	}
 	echo $skillSpecial . "\n";
