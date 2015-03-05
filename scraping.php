@@ -36,9 +36,7 @@ function getCardData($url, $number) {
 		$title_name = $val->nodeValue;
 	}
 	$title = mb_substr($title_name, mb_strpos($title_name, '【') + 1, mb_strpos($title_name, '】') - mb_strpos($title_name, '【') - 1);
-	echo $title . "\n";
 	$name = mb_substr($title_name, mb_strpos($title_name, '】') + 1, mb_strlen($title_name) - mb_strpos($title_name, '】') - 1);
-	echo $name . "\n";
 	
 	// Rare
 	foreach ($xpath->query('//div[@class="ui_wikidb_top_pc "]/p[1]') as $val) {
@@ -67,78 +65,66 @@ function getCardData($url, $number) {
 		default :
 			$rare = 0;
 	}
-	echo $rare . "\n";
 	
 	// Cost
 	foreach ($xpath->query('//div[@class="ui_wikidb_top_pc "]/p[2]') as $val) {
 		$cost = $val->nodeValue;
 	}
 	$cost = mb_substr($cost, 4, 1);
-	echo $cost . "\n";
 	
 	// Arthur
 	foreach ($xpath->query('//div[@class="ui_wikidb_top_pc "]/p[3]') as $val) {
 		$arthur = $val->nodeValue;
 	}
 	$arthur = mb_substr($arthur,  8, 2);
-	echo $arthur . "\n";
 	
 	// Type
 	foreach ($xpath->query('//div[@class="ui_wikidb_top_pc "]/p[4]') as $val) {
 		$type = $val->nodeValue;
 	}
 	$type = mb_substr($type, 4, 1);
-	echo $type . "\n";
 	
 	// Attribute
 	foreach ($xpath->query('//div[@class="ui_wikidb_top_area ui_clearfix "]/p[1]') as $val) {
 		$attribute = $val->nodeValue;
 	}
 	$attribute = mb_substr($attribute, 3, 1);
-	echo $attribute . "\n";
 	
 	// BonusHP
 	foreach ($xpath->query('//div[@class="ui_wikidb_middle_area ui_clearfix"]/p[1]') as $val) {
 		$bonusHP = $val->nodeValue;
 	}
 	$bonusHP = mb_substr($bonusHP, 5, mb_strlen($bonusHP) - 5);
-	echo $bonusHP . "\n";
 	
 	// BonusPhysical
 	foreach ($xpath->query('//div[@class="ui_wikidb_middle_area ui_clearfix"]/p[2]') as $val) {
 		$bonusPhysical = $val->nodeValue;
 	}
 	$bonusPhysical = mb_substr($bonusPhysical, 9, mb_strlen($bonusPhysical) - 9);
-	echo $bonusPhysical . "\n";
 	
 	// BonusMagic
 	foreach ($xpath->query('//div[@class="ui_wikidb_middle_area ui_clearfix"]/p[3]') as $val) {
 		$bonusMagic = $val->nodeValue;
 	}
 	$bonusMagic = mb_substr($bonusMagic, 9, mb_strlen($bonusMagic) - 9);
-	echo $bonusMagic . "\n";
 	
 	// BonusHeal
 	foreach ($xpath->query('//div[@class="ui_wikidb_middle_area ui_clearfix"]/p[4]') as $val) {
 		$bonusHeal = $val->nodeValue;
 	}
 	$bonusHeal = mb_substr($bonusHeal , 6, mb_strlen($bonusHeal) - 6);
-	echo $bonusHeal . "\n";
 	
 	// SkillNormal
 	foreach ($xpath->query('//div[@class="ui_wiki_db_bottom_wrapper "]/p[1]/span[2]') as $val) {
 		$skillNormal = $val->nodeValue;
 	}
-	echo $skillNormal . "\n";
 	
 	// SkillSpecial
 	foreach ($xpath->query('//div[@class="ui_wiki_db_bottom_wrapper "]/p[2]/span[2]') as $val) {
 		$skillSpecial = $val->nodeValue;
 	}
-	echo $skillSpecial . "\n";
 	
-	// Register Data Database
-	
+	// Register Data to Database
     $dbh = connectDb();
     $sql = "select * from cards where Title = '$title' and Name = '$name'";
     $stmt = $dbh->query("SET NAMES utf8;");
@@ -171,4 +157,7 @@ function getCardData($url, $number) {
     $stmt = null;
 }
 
+header('Location: '.SITE_URL.'maintenance.php');
+exit;
 
+?>

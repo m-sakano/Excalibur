@@ -10,7 +10,7 @@ create table cards (
     Rare enum('1','2','3','4','5','6') not null,
     Cost enum('1','2','3','4','5') not null,
     Arthur enum('傭兵','富豪','盗賊','歌姫') not null,
-    Type enum('物','魔','治','支','防','妨') not null,
+    Type enum('物','魔','治','支','守','妨') not null,
     Attribute enum('火','氷','風','光','闇') not null,
     BonusHP smallint unsigned,
     BonusPhysical smallint unsigned,
