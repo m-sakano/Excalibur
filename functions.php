@@ -93,3 +93,22 @@ function truncateTable($t){
     $stmt->execute();
 }
 
+/**
+ * URL引数を結合して返す
+ * 
+ */
+function printArgs($args) {
+	$line = '';
+    if (count($args)!=0) {
+    	$i = 0;
+    	foreach ($args as $arg) {
+    		if ($i == 0) {
+    			$line .= '?'.$arg;
+    		} else {
+    			$line .= '&'.$arg;
+    		}
+    		$i++;
+    	}
+    }
+    return $line;
+}

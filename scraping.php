@@ -159,5 +159,3 @@ function getCardData($url, $number) {
 
 header('Location: '.SITE_URL.'maintenance.php');
 exit;
-
-?>
