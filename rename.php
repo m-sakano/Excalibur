@@ -13,7 +13,7 @@ if (isset($_GET['deckname'])) {
         $decknum = '1';
     }
     $deckname = h($_GET['deckname']);
-    setcookie("deckname[$decknum]", $deckname);
+    setcookie("deckname[$decknum]", $deckname, COOKIE_LIFETIME);
 }
 
 // return url

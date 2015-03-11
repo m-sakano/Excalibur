@@ -6,6 +6,7 @@ define('BRAND', 'Excalibur');
 
 // Cookie Settings
 session_set_cookie_params(0, '/Excalibur/');
+define('COOKIE_LIFETIME', time()+60*60*24*365*10);
 
 // MySQL Database Connection Settings
 define('DSN', 'mysql:host=localhost;dbname=Excalibur');
@@ -23,5 +24,3 @@ error_reporting(E_ALL &~E_NOTICE);
 
 // Server Locale
 setlocale(LC_ALL, 'ja_JP.UTF-8');
-
-

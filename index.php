@@ -16,7 +16,7 @@ session_start();
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
 </head>
-<body>
+<body style="background-image:url('./b005.gif');">
 <?php include_once(dirname(__FILE__) . '/analyticstracking.php'); ?>
 <div id="header" class="container" style="background:white;">
     <nav class="navbar navbar-default" role="navigation">
@@ -39,23 +39,26 @@ session_start();
 	          		<span class="glyphicon glyphicon-book" aria-hidden="true"></span> デッキリスト <span class="caret"></span></a>
 	          		<?php showDeckList(); ?>
 	        	</li>
-        		<li><a href="maintenance.php">メンテナンス</a></li>
       		</ul>
 		</div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 </div>
 
-<div class="container">
+<div class="container" style="background:white;">
 	<div class="row">
-		<div class="col-sm-9" style="background:white;">
+		<div class="col-sm-9">
 			<div class="panel panel-info">
 				<div class="panel-heading">お知らせ</div>
   				<div class="panel-body">
-    				Excaliburは現在開発中です。
+    				乖離性ミリオンアーサーのデッキシミュレータです。デッキ構築やメモとしてご利用ください。
   				</div>
 			</div>
-			
+			<!-- 広告 -->
+			<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=a8-affi-232192-22&o=9&p=13&l=ur1&category=tvgame&f=ifr" width=468 height=60 scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe> <img border="0" width="1" height="1" src="http://www12.a8.net/0.gif?a8mat=2BO2I4+EVVOA+249K+BWGDT" alt="">
+
+			<!-- Deck Layer -->
+			<div style="background:white;">
 			<!-- Show Deck Name -->
 			<form action="rename.php" method="get">
 				<div class ="form-group">
@@ -65,7 +68,8 @@ session_start();
 						</span>
 						<input type="text" id="deckname" class="form-control" value="<?php echo getDeckName(); ?>" name="deckname" />
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">デッキ名変更</button>
+							<button class="btn btn-default" type="submit">
+							<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> デッキ名変更</button>
 						</span>
 					</div><!-- /input-group -->
 					<?php 
@@ -78,19 +82,32 @@ session_start();
 					?>
 				</div>
 			</form>
-			
-			<!-- Show Arthur Selector -->
-			<div class="btn-group">
-				<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-				<?php echo getArthurType(); ?>
-				<span class="caret"></span>
-				</button>
-				<?php showArthurList(); ?>
+			<div class="row">
+				<!-- Show Arthur Selector -->
+				<div class="col-sm-2">
+				<div class="btn-group">
+					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+					<?php echo getArthurType(); ?>
+					<span class="caret"></span>
+					</button>
+					<?php showArthurList(); ?>
+				</div>
+				</div>
+				<!-- Show Status -->
+				<div class="col-sm-10">
+				<?php showStatus(); ?>
+				</div>
 			</div>
-			
+
             <!-- MyDeck Table View -->
             <?php showDeck(); ?>
-            
+            </div>
+
+			<!-- 広告 -->
+			<a href="http://px.a8.net/svt/ejp?a8mat=2HHPCT+ADATUI+6HW+2TEC1D" target="_blank">
+			<img border="0" width="728" height="90" alt="" src="http://www28.a8.net/svt/bgt?aid=150311837627&wid=002&eno=01&mid=s00000000842017031000&mc=1"></a>
+			<img border="0" width="1" height="1" src="http://www15.a8.net/0.gif?a8mat=2HHPCT+ADATUI+6HW+2TEC1D" alt="">
+
             <!-- Search Card -->
 			<h2>カード検索</h2>
 			<form action="<?php SITE_URL ?>" method="get">
@@ -101,7 +118,8 @@ session_start();
 						</span>
 						<input type="text" id="cardname" class="form-control" placeholder="<?php echo getPlaceholder(); ?>" name="search" />
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">カード検索</button>
+							<button class="btn btn-default" type="submit">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span> カード検索</button>
 						</span>
 						<?php 
 							if ($_GET['deck']) {
@@ -122,18 +140,38 @@ session_start();
     				</ul>
   				</div>
 			</div>
-
             
             <!-- Show Search Result -->
             <?php showSearchResult(); ?>
+            
+            <!-- 広告 -->
+            <a href="http://px.a8.net/svt/ejp?a8mat=2HHPCT+AG9ZVE+6HW+1NNMTD" target="_blank">
+			<img border="0" width="468" height="60" alt="" src="http://www22.a8.net/svt/bgt?aid=150311837632&wid=002&eno=01&mid=s00000000842010020000&mc=1"></a>
+			<img border="0" width="1" height="1" src="http://www12.a8.net/0.gif?a8mat=2HHPCT+AG9ZVE+6HW+1NNMTD" alt="">
 		</div>
-		<div class="col-sm-3" style="background:white;">
-			<script src="http://bijo-linux.com/bp/js/bijo-off-0.9.js"></script>
+		<div class="col-sm-3">
+			<!-- 広告 -->
+			<a href="http://px.a8.net/svt/ejp?a8mat=2HHPCT+AG9ZVE+6HW+1NN7DT" target="_blank">
+			<img border="0" width="250" height="250" alt="" src="http://www25.a8.net/svt/bgt?aid=150311837632&wid=002&eno=01&mid=s00000000842010018000&mc=1"></a>
+			<img border="0" width="1" height="1" src="http://www10.a8.net/0.gif?a8mat=2HHPCT+AG9ZVE+6HW+1NN7DT" alt="">
+			<!-- 広告 -->
+			<table cellpadding="0" cellspacing="0" border="0" style=" border:1px solid #ccc; width:170px;"><tr style="border-style:none;"><td style="vertical-align:top; border-style:none; padding:10px 10px 0pt;"><a href="http://px.a8.net/svt/ejp?a8mat=2BO2I4+EVVOA+249K+BWGDT&a8ejpredirect=http%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB00Q3APQVY%2F%3Ftag%3Da8-affi-232192-22" target="_blank"><img border="0" alt="" src="http://ecx.images-amazon.com/images/I/61mG2sA4-rL._SS160_.jpg" /></a></td></tr><tr style="border-style:none;"><td style="font-size:12px; vertical-align:middle; border-style:none; padding:10px;"><p style="padding:0; margin:0;"><a href="http://px.a8.net/svt/ejp?a8mat=2BO2I4+EVVOA+249K+BWGDT&a8ejpredirect=http%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB00Q3APQVY%2F%3Ftag%3Da8-affi-232192-22" target="_blank">乖離性ミリオンアーサー オリジナル・サウンドトラック バトルコレクションズ</a></p></td></tr></table>
+			<img border="0" width="1" height="1" src="http://www19.a8.net/0.gif?a8mat=2BO2I4+EVVOA+249K+BWGDT" alt="">
+			<!-- 広告 -->
+			<table cellpadding="0" cellspacing="0" border="0" style=" border:1px solid #ccc; width:170px;"><tr style="border-style:none;"><td style="vertical-align:top; border-style:none; padding:10px 10px 0pt;"><a href="http://px.a8.net/svt/ejp?a8mat=2BO2I4+EVVOA+249K+BWGDT&a8ejpredirect=http%3A%2F%2Fwww.amazon.co.jp%2Fdp%2F4757537182%2F%3Ftag%3Da8-affi-232192-22" target="_blank"><img border="0" alt="" src="http://ecx.images-amazon.com/images/I/515bKLBBkjL._SS160_.jpg" /></a></td></tr><tr style="border-style:none;"><td style="font-size:12px; vertical-align:middle; border-style:none; padding:10px;"><p style="padding:0; margin:0;"><a href="http://px.a8.net/svt/ejp?a8mat=2BO2I4+EVVOA+249K+BWGDT&a8ejpredirect=http%3A%2F%2Fwww.amazon.co.jp%2Fdp%2F4757537182%2F%3Ftag%3Da8-affi-232192-22" target="_blank">拡散性ミリオンアーサー 画集</a></p></td></tr></table>
+			<img border="0" width="1" height="1" src="http://www12.a8.net/0.gif?a8mat=2BO2I4+EVVOA+249K+BWGDT" alt="">
+			<!-- 広告 -->
+			<table cellpadding="0" cellspacing="0" border="0" style=" border:1px solid #ccc; width:170px;"><tr style="border-style:none;"><td style="vertical-align:top; border-style:none; padding:10px 10px 0pt;"><a href="http://px.a8.net/svt/ejp?a8mat=2BO2I4+EVVOA+249K+BWGDT&a8ejpredirect=http%3A%2F%2Fwww.amazon.co.jp%2Fdp%2F4757538723%2F%3Ftag%3Da8-affi-232192-22" target="_blank"><img border="0" alt="" src="http://ecx.images-amazon.com/images/I/61NRXt+-t4L._SS160_.jpg" /></a></td></tr><tr style="border-style:none;"><td style="font-size:12px; vertical-align:middle; border-style:none; padding:10px;"><p style="padding:0; margin:0;"><a href="http://px.a8.net/svt/ejp?a8mat=2BO2I4+EVVOA+249K+BWGDT&a8ejpredirect=http%3A%2F%2Fwww.amazon.co.jp%2Fdp%2F4757538723%2F%3Ftag%3Da8-affi-232192-22" target="_blank">拡散性ミリオンアーサー 画集 VOL.2</a></p></td></tr></table>
+			<img border="0" width="1" height="1" src="http://www16.a8.net/0.gif?a8mat=2BO2I4+EVVOA+249K+BWGDT" alt="">
+			<!-- 広告 -->
+			<a href="http://px.a8.net/svt/ejp?a8mat=2HHPCT+ADATUI+6HW+2TC6VL" target="_blank">
+			<img border="0" width="250" height="250" alt="" src="http://www28.a8.net/svt/bgt?aid=150311837627&wid=002&eno=01&mid=s00000000842017021000&mc=1"></a>
+			<img border="0" width="1" height="1" src="http://www14.a8.net/0.gif?a8mat=2HHPCT+ADATUI+6HW+2TC6VL" alt="">
 		</div>
 	</div>
 </div>
 <div id="footer" class="container" style="background:#FFFFFF;">
-    <p align="left">出典：『乖離性ミリオンアーサー』（2014-2015 SQUARE ENIX CO., LTD.）</p>
+    <p align="right">出典：『乖離性ミリオンアーサー』（2014-2015 SQUARE ENIX CO., LTD.）</p>
 </div>
 
 <!-- jQuery & bootstrap plugins-->
@@ -223,7 +261,7 @@ function showRegistBottun($title, $name) {
     $args[] = 'name='.$name;
     $line .= printArgs($args);
     $line .='">';
-    $line .= '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>';
+    $line .= '<span class="glyphicon glyphicon-book" aria-hidden="true"></span>';
     $line .= '</a>';
     return $line;
 }
@@ -247,7 +285,7 @@ function showDeleteBottun($title, $name) {
     $args[] = 'name='.$name;
     $line .= printArgs($args);
     $line .='">';
-    $line .= '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    $line .= '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>';
     $line .= '</a>';
     return $line;	
 }
@@ -261,7 +299,7 @@ function showSearchResult() {
         echo '<table class="table table-striped table-bordered">';
         echo '<thead>';
         echo '<tr>';
-        echo '<th>番号</th>';
+        echo '<th>追加</th>';
         echo '<th>称号</th>';
         echo '<th>名前</th>';
         echo '<th>レア</th>';
@@ -273,13 +311,17 @@ function showSearchResult() {
         echo '<th>物理</th>';
         echo '<th>魔法</th>';
         echo '<th>回復</th>';
-        echo '<th>通常スキル</th>';
-        echo '<th>覚醒スキル</th>';
-        echo '<th>追加</th>';
+        echo '<th>スキル</th>';
         echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
-        $name = h($_GET['search']);
+        
+	    if($_GET['deck']){
+	        $deckNum = h($_GET['deck']);
+	    } else {
+	        $deckNum = '1';
+	    }
+        $name = escapeSql($_GET['search']);
         $sql = 'select * from cards where Name like "%'.$name.'%" ';
         $dbh = connectDb();
         $stmt = $dbh->query("SET NAMES utf8;");
@@ -290,7 +332,7 @@ function showSearchResult() {
         	$i++;
             $line = '';
             $line .= '<tr>';
-            $line .= '<td>'.$i.'</td>';
+            $line .= '<td>'. showRegistBottun($record['Title'],$record['Name']) .'</td>';
             $line .= '<td>'.$record['Title'].'</td>';
             $line .= '<td>'.$record['Name'].'</td>';
             $line .= '<td>'.$record['Rare'].'</td>';
@@ -302,9 +344,16 @@ function showSearchResult() {
             $line .= '<td>'.$record['BonusPhysical'].'</td>';
             $line .= '<td>'.$record['BonusMagic'].'</td>';
             $line .= '<td>'.$record['BonusHeal'].'</td>';
-            $line .= '<td>'.$record['SkillNormal'].'</td>';
-            $line .= '<td>'.$record['SkillSpecial'].'</td>';
-            $line .= '<td>'. showRegistBottun($record['Title'],$record['Name']) .'</td>';
+            if (isset($_COOKIE['type'])) {
+            	$arthurType = mb_substr(h($_COOKIE['type'][$deckNum]), 0, 2);
+            } else {
+            	$arthurType = '傭兵';
+            }
+            if ($arthurType == $record['Arthur']) {
+            	$line .= '<td>'.$record['SkillSpecial'].'</td>';
+            } else {
+            	$line .= '<td>'.$record['SkillNormal'].'</td>';
+            }
             $line .= '</tr>';
             echo $line;
         }
@@ -357,6 +406,84 @@ function getDeckName() {
 }
 
 /**
+ * デッキのステータス値を表示する
+ * 
+ */
+function showStatus() {
+    if($_GET['deck']){
+        $deckNum = h($_GET['deck']);
+    } else {
+        $deckNum = 1;
+    }
+    if(isset($_COOKIE['type'][$deckNum])) {
+    	$arthurType = h($_COOKIE['type'][$deckNum]);
+    } else {
+    	$arthurType = '傭兵アーサー';
+    }
+    $statusHP = '';
+    $statusPhysical = '';
+    $statusMagic = '';
+    $statusHeal = '';
+    for($cardNum=0; $cardNum<10; $cardNum++) {
+        if(isset($_COOKIE['title'][$deckNum][$cardNum]) && isset($_COOKIE['name'][$deckNum][$cardNum])) {
+            $title = h($_COOKIE['title'][$deckNum][$cardNum]);
+            $name  = h($_COOKIE['name'][$deckNum][$cardNum]);
+            $sql = "select * from cards where Title='$title' and Name='$name' ";
+            $dbh = connectDb();
+            $stmt = $dbh->query("SET NAMES utf8;");
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute();
+            while($record = $stmt->fetch()) {
+            	if($cardNum=1) {
+	            	$statusHP		+= floor($record['BonusHP'] * 1.5);
+	            	$statusPhysical	+= floor($record['BonusPhysical'] * 1.5);
+	            	$statusMagic	+= floor($record['BonusMagic'] * 1.5);
+	            	$statusHeal		+= floor($record['BonusHeal'] * 1.5);
+            	} else {
+	            	$statusHP		+= $record['BonusHP'];
+	            	$statusPhysical	+= $record['BonusPhysical'];
+	            	$statusMagic	+= $record['BonusMagic'];
+	            	$statusHeal		+= $record['BonusHeal'];            		
+            	}
+            }
+            $stmt->closeCursor();
+        }
+    }
+	switch ($arthurType) {
+		case '傭兵アーサー':
+			$statusHP		+= 2650;
+			$statusPhysical	+= 480;
+			$statusMagic	+= 50;
+			$statusHeal		+= 190;
+			break;
+		case '富豪アーサー':
+			$statusHP		+= 4620;
+			$statusPhysical	+= 330;
+			$statusMagic	+= 70;
+			$statusHeal		+= 40;
+			break;
+		case '盗賊アーサー':
+			$statusHP		+= 2080;
+			$statusPhysical	+= 100;
+			$statusMagic	+= 480;
+			$statusHeal		+= 240;
+			break;
+		case '歌姫アーサー':
+			$statusHP		+= 2190;
+			$statusPhysical	+= 50;
+			$statusMagic	+= 330;
+			$statusHeal		+= 480;
+			break;
+	}
+	echo '<ol class="breadcrumb">';
+	echo '<li>ＨＰ <span class="badge">'.$statusHP.'</span></li>';
+	echo '<li>物理 <span class="badge">'.$statusPhysical.'</span></li>';
+	echo '<li>魔法 <span class="badge">'.$statusMagic.'</span></li>';
+	echo '<li>回復 <span class="badge">'.$statusHeal.'</span></li>';
+	echo '</ol>';
+}
+
+/**
  * デッキをテーブル表示する
  * 
  */
@@ -364,7 +491,7 @@ function showDeck() {
     echo '<table class="table table-striped table-bordered">';
     echo '<thead>';
     echo '<tr>';
-    echo '<th>番号</th>';
+    echo '<th>削除</th>';
     echo '<th>称号</th>';
     echo '<th>名前</th>';
     echo '<th>レア</th>';
@@ -376,9 +503,7 @@ function showDeck() {
     echo '<th>物理</th>';
     echo '<th>魔法</th>';
     echo '<th>回復</th>';
-    echo '<th>通常スキル</th>';
-    echo '<th>覚醒スキル</th>';
-    echo '<th>削除</th>';
+    echo '<th>スキル</th>';
     echo '</tr>';
     echo '</thead>';
     echo '<tbody>';
@@ -402,7 +527,7 @@ function showDeck() {
             while($record = $stmt->fetch()) {
                 $line = '';
                 $line .= '<tr>';
-                $line .= '<td>'.$rowNum.'</td>';
+                $line .= '<td>'.showDeleteBottun($record['Title'],$record['Name']).'</td>';
                 $line .= '<td>'.$record['Title'].'</td>';
                 $line .= '<td>'.$record['Name'].'</td>';
                 $line .= '<td>'.$record['Rare'].'</td>';
@@ -414,20 +539,25 @@ function showDeck() {
                 $line .= '<td>'.$record['BonusPhysical'].'</td>';
                 $line .= '<td>'.$record['BonusMagic'].'</td>';
                 $line .= '<td>'.$record['BonusHeal'].'</td>';
-                $line .= '<td>'.$record['SkillNormal'].'</td>';
-                $line .= '<td>'.$record['SkillSpecial'].'</td>';
-                $line .= '<td>'.showDeleteBottun($record['Title'],$record['Name']).'</td>';
+                if (isset($_COOKIE['type'])) {
+                	$arthurType = mb_substr(h($_COOKIE['type'][$deckNum]), 0, 2);
+                } else {
+                	$arthurType = '傭兵';
+                }
+                if ($arthurType == $record['Arthur']) {
+                	$line .= '<td>'.$record['SkillSpecial'].'</td>';
+                } else {
+                	$line .= '<td>'.$record['SkillNormal'].'</td>';
+                }
                 $line .= '</tr>';
                 echo $line;
             }
             $stmt->closeCursor();
         } else {
-        	$rowNum = $cardNum + 1;
             $line = '';
             $line .= '<tr>';
-            $line .= "<td>$rowNum</td>";
-            for($i=0;$i<14;$i++) {
-                $line .= '<td></td>';
+            for($i=0;$i<13;$i++) {
+                $line .= '<td>&nbsp;</td>';
             }
             $line .= '</tr>';
             echo $line;
@@ -436,8 +566,5 @@ function showDeck() {
     echo '</tbody>';
     echo '</table>';
 }
-
-
-
 
 ?>

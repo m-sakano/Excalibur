@@ -12,11 +12,51 @@ function connectDb() {
 }
 
 /**
+ * SQLクエリのWhere句の特別な文字をエスケープする
+ * 
+ */
+function escapeSql($s) {
+    $line = '';
+    for ($i = 0; $i < mb_strlen($s); $i++) {
+        switch (mb_substr($s, $i, 1)) {
+            case "\\":
+                $line .= "\\\\";
+                break;
+            case "\"":
+                $line .= "\\\"";
+                break;
+            case "'":
+                $line .= "\\'";
+                break;
+            case "_":
+                $line .= "\\_";
+                break;
+            case "%":
+                $line .= "\\%";
+                break;
+            default:
+                $line .= mb_substr($s, $i, 1);
+        }
+    }
+    return $line;
+}
+
+/**
  * テキストをHTMLのエスケープ処理をして返す
  */
 function h($s) {
     return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
 }
+
+/**
+ * 改行記号を取り除き半角スペースに変換する
+ */
+ function trimReturn($s) {
+     $s = str_replace($s, "\r\n", " ");
+     $s = str_replace($s, "\r", " ");
+     $s = str_replace($s, "\n", " ");
+     return $s;
+ }
 
 /**
  * データベースにCSVファイルをロードする

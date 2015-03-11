@@ -5,8 +5,11 @@ require_once('functions.php');
 
 session_start();
 
+$date = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+
 $downloaddir =  __DIR__ . '/downloads/';
-$downloadfile = $downloaddir . 'Excalibur' . '.csv';
+$filename = 'Excalibur' .$date->format('YmdHis'). '.csv';
+$downloadfile = $downloaddir . $filename;
 
 if(file_exists($downloadfile)){
     unlink($downloadfile);
@@ -14,6 +17,6 @@ if(file_exists($downloadfile)){
 
 saveData($downloadfile, 'cards');
 changeCharset($downloadfile, 'SJIS', 'UTF-8');
-downloadFile($downloadfile, 'Excalibur.csv');
+downloadFile($downloadfile, $filename);
 
 ?>

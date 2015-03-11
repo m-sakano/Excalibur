@@ -116,12 +116,12 @@ function getCardData($url, $number) {
 	
 	// SkillNormal
 	foreach ($xpath->query('//div[@class="ui_wiki_db_bottom_wrapper "]/p[1]/span[2]') as $val) {
-		$skillNormal = $val->nodeValue;
+		$skillNormal = trimReturn($val->nodeValue);
 	}
 	
 	// SkillSpecial
 	foreach ($xpath->query('//div[@class="ui_wiki_db_bottom_wrapper "]/p[2]/span[2]') as $val) {
-		$skillSpecial = $val->nodeValue;
+		$skillSpecial = trimReturn($val->nodeValue);
 	}
 	
 	// Register Data to Database
