@@ -434,7 +434,7 @@ function showStatus() {
             $stmt = $dbh->prepare($sql);
             $stmt->execute();
             while($record = $stmt->fetch()) {
-            	if($cardNum=1) {
+            	if($cardNum==1) {
 	            	$statusHP		+= floor($record['BonusHP'] * 1.5);
 	            	$statusPhysical	+= floor($record['BonusPhysical'] * 1.5);
 	            	$statusMagic	+= floor($record['BonusMagic'] * 1.5);
