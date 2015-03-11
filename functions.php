@@ -49,16 +49,6 @@ function h($s) {
 }
 
 /**
- * 改行記号を取り除き半角スペースに変換する
- */
- function trimReturn($s) {
-     $s = str_replace($s, "\r\n", " ");
-     $s = str_replace($s, "\r", " ");
-     $s = str_replace($s, "\n", " ");
-     return $s;
- }
-
-/**
  * データベースにCSVファイルをロードする
  * 
  * @param string $f csvファイルのフルパス

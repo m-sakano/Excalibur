@@ -12,7 +12,9 @@ session_start();
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo BRAND; ?></title>
+    <meta name="description" content="乖離性ミリオンアーサーのデッキシミュレータです。デッキ構築やメモとしてご利用ください。">
+    <meta name="keywords" content="乖離性ミリオンアーサー,乖離性,ミリオンアーサー,デッキシミュレータ,デッキ,シミュレータ">
+    <title><?php echo BRAND; ?> - 乖離性ミリオンアーサー デッキシミュレータ</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
 </head>
@@ -170,8 +172,19 @@ session_start();
 		</div>
 	</div>
 </div>
-<div id="footer" class="container" style="background:#FFFFFF;">
-    <p align="right">出典：『乖離性ミリオンアーサー』（2014-2015 SQUARE ENIX CO., LTD.）</p>
+<div id="footer" class="container" style="background:#d9edf7;padding:60px;">
+	<div class="row">
+		<div class="col-sm-6">
+			<h4>ようこそ</h4>
+			第二型エクスカリバーは、乖離性ミリオンアーサーをプレイするアーサーさんのためのデッキシミュレータです。<br>
+			新しいデッキ構築をシミュレーションしたり、メモとして残しておいたり。<br>
+			かなりべんり（かなり）
+		</div>
+		<div class="col-sm-6">
+    		<h4>出典</h4>
+    		『乖離性ミリオンアーサー』（2014-2015 SQUARE ENIX CO., LTD.）
+    	</div>
+    </div>
 </div>
 
 <!-- jQuery & bootstrap plugins-->
