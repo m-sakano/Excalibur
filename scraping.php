@@ -116,13 +116,15 @@ function getCardData($url, $number) {
 	
 	// SkillNormal
 	foreach ($xpath->query('//div[@class="ui_wiki_db_bottom_wrapper "]/p[1]/span[2]') as $val) {
-		$skillNormal = str_replace(array("\r\n","\r","\n"), " ", $val->nodeValue);
+		$skillNormal = $val->nodeValue;
 	}
+	$skillNormal = str_replace(array("\r\n","\r","\n"), " ", $skillNormal);
 	
 	// SkillSpecial
 	foreach ($xpath->query('//div[@class="ui_wiki_db_bottom_wrapper "]/p[2]/span[2]') as $val) {
-		$skillSpecial = str_replace(array("\r\n","\r","\n"), " ", $val->nodeValue);
+		$skillSpecial = $val->nodeValue;
 	}
+	$skillSpecial = str_replace(array("\r\n","\r","\n"), " ", $skillSpecial);
 	
 	// Register Data to Database
     $dbh = connectDb();

@@ -1,11 +1,11 @@
 <?php
 
 // SITE Settings
-define('SITE_URL', 'http://www.chemicalbrain.net/Excalibur/');
+define('SITE_URL', 'http://www.example.com/');
 define('BRAND', 'Excalibur');
 
 // Cookie Settings
-session_set_cookie_params(0, '/Excalibur/');
+session_set_cookie_params(0, '/');
 define('COOKIE_LIFETIME', time()+60*60*24*365*10);
 
 // MySQL Database Connection Settings
@@ -14,8 +14,8 @@ define('DB_USER', 'Excalibur');
 define('DB_PASSWORD', 'Excalibur_password');
 
 // Google Authentication Settings
-define('CLIENT_ID', '957141889512-hsiekeccn0vau8aur3e89igu0skn7kee.apps.googleusercontent.com');
-define('CLIENT_SECRET', 'd9HYUCpQOnA_YkvZDJAilkK1');
+define('CLIENT_ID', '');
+define('CLIENT_SECRET', '');
 
 
 // DEBUG Settings
