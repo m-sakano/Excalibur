@@ -433,10 +433,10 @@ function showStatus() {
     } else {
     	$arthurType = '傭兵アーサー';
     }
-    $statusHP = '';
-    $statusPhysical = '';
-    $statusMagic = '';
-    $statusHeal = '';
+    $statusHP = 0;
+    $statusPhysical = 0;
+    $statusMagic = 0;
+    $statusHeal = 0;
     for($cardNum=0; $cardNum<10; $cardNum++) {
         if(isset($_COOKIE['title'][$deckNum][$cardNum]) && isset($_COOKIE['name'][$deckNum][$cardNum])) {
             $title = h($_COOKIE['title'][$deckNum][$cardNum]);
@@ -447,7 +447,7 @@ function showStatus() {
             $stmt = $dbh->prepare($sql);
             $stmt->execute();
             while($record = $stmt->fetch()) {
-            	if($cardNum==1) {
+            	if($cardNum==0) {
 	            	$statusHP		+= floor($record['BonusHP'] * 1.5);
 	            	$statusPhysical	+= floor($record['BonusPhysical'] * 1.5);
 	            	$statusMagic	+= floor($record['BonusMagic'] * 1.5);
