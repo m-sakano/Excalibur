@@ -14,7 +14,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="乖離性ミリオンアーサーのデッキシミュレータです。デッキ構築やメモとしてご利用ください。">
     <meta name="keywords" content="乖離性,ミリオンアーサー,デッキ,シミュレータ,ツール">
-    <title><?php echo BRAND; ?> - 乖離性ミリオンアーサー デッキシミュレータ</title>
+    <title>乖離性ミリオンアーサー デッキシミュレータ - <?php echo BRAND; ?></title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
 </head>

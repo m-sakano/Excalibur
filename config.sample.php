@@ -2,7 +2,7 @@
 
 // SITE Settings
 define('SITE_URL', 'http://www.example.com/');
-define('BRAND', 'Excalibur');
+define('BRAND', '第二型エクスカリバー');
 
 // Cookie Settings
 session_set_cookie_params(0, '/');
