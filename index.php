@@ -13,7 +13,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="乖離性ミリオンアーサーのデッキシミュレータです。デッキ構築やメモとしてご利用ください。">
-    <meta name="keywords" content="乖離性ミリオンアーサー,乖離性,ミリオンアーサー,デッキシミュレータ,デッキ,シミュレータ">
+    <meta name="keywords" content="乖離性,ミリオンアーサー,デッキ,シミュレータ,ツール">
     <title><?php echo BRAND; ?> - 乖離性ミリオンアーサー デッキシミュレータ</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
@@ -123,12 +123,12 @@ session_start();
 							<button class="btn btn-default" type="submit">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span> カード検索</button>
 						</span>
-						<?php 
-							if ($_GET['deck']) {
-								echo '<input type="hidden" id="deck" name="deck" value='.h($_GET['deck']).' />';
-							}
-						?>
 					</div>
+					<?php 
+						if ($_GET['deck']) {
+							echo '<input type="hidden" id="deck" name="deck" value='.h($_GET['deck']).' />';
+						}
+					?>
 				</div>
 			</form>
 			<div class="panel panel-info">

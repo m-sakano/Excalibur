@@ -18,16 +18,3 @@ if (isset($_GET['deckname'])) {
 
 // return url
 goBack();
-
-function goBack() {
-    unset($args);
-    if ($_GET['search']) {
-        $args[] = 'search='.h($_GET['search']);
-    }
-    if ($_GET['deck']) {
-        $args[] = 'deck='.h($_GET['deck']);
-    }
-    $url = SITE_URL . printArgs($args);
-    header('Location: '.$url);
-    exit;
-}

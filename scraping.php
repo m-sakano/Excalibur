@@ -9,7 +9,7 @@ session_start();
 $dom = new DOMDocument;
 @$dom->loadHTMLFile('http://million-arthurs.gamerch.com/カードコレクション順');
 $xpath = new DOMXPath($dom);
-$urllist = [];
+unset($urllist);
 foreach ($xpath->query('//div[@class="card_list"]/table/tbody/tr/td') as $url) {
 	if ($xpath->evaluate('string(a/@href)',$url) != '#top' &&
 	    $xpath->evaluate('string(a/@href)',$url) != 'http://million-arthurs.gamerch.com/【二つ名】騎士名') {

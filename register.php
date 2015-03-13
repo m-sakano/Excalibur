@@ -29,9 +29,9 @@ if (isset($_COOKIE['name'][$deckNum])) {
 // デッキ番号は1〜10
 // カード番号は0〜9
 
-// デッキに同じカードが含まれていないことを確認する
+// デッキに名前が同じカードが含まれていないことを確認する
 for ($i=0; $i<10; $i++) {
-    if ($title[$deckNum][$i]==$_GET['title'] && $name[$deckNum][$i]==$_GET['name']) {
+    if ($name[$deckNum][$i]==$_GET['name']) {
         goBack();
     }
 }
@@ -54,16 +54,3 @@ for ($i=0; $i<10; $i++) {
 
 // return url
 goBack();
-
-function goBack() {
-    unset($args);
-    if ($_GET['search']) {
-        $args[] = 'search='.h($_GET['search']);
-    }
-    if ($_GET['deck']) {
-        $args[] = 'deck='.h($_GET['deck']);
-    }
-    $url = SITE_URL . printArgs($args);
-    header('Location: '.$url);
-    exit;
-}

@@ -142,3 +142,20 @@ function printArgs($args) {
     }
     return $line;
 }
+
+/**
+ * トップページに戻る
+ * 
+ */
+function goBack() {
+    unset($args);
+    if (isset($_GET['search'])) {
+        $args[] = 'search='.h($_GET['search']);
+    }
+    if (isset($_GET['deck'])) {
+        $args[] = 'deck='.h($_GET['deck']);
+    }
+    $url = SITE_URL . printArgs($args);
+    header('Location: '.$url);
+    exit;
+}
