@@ -41,8 +41,8 @@ session_start();
 	          		<span class="glyphicon glyphicon-book" aria-hidden="true"></span> デッキリスト <span class="caret"></span></a>
 	          		<?php showDeckList(); ?>
 	        	</li>
-	        	<li>
-	        		<a href="help.php">ユーザーガイド <span class="sr-only">(current)</span></a>
+	        	<li class="active">
+	        		<a href="#">ユーザーガイド <span class="sr-only">(current)</span></a>
 	        	</li>
       		</ul>
 		</div><!-- /.navbar-collapse -->
@@ -53,100 +53,51 @@ session_start();
 <div class="container" style="background:white;">
 	<div class="row">
 		<div class="col-sm-9">
-			<div class="panel panel-info">
-				<div class="panel-heading">お知らせ</div>
-  				<div class="panel-body">
-    				乖離性ミリオンアーサーのデッキシミュレータです。デッキ構築やメモとしてご利用ください。
-  				</div>
-			</div>
-			
-			<!-- Deck Layer -->
+			<!-- Help Layer -->
 			<div style="background:white;">
-			<!-- Show Deck Name -->
-			<form action="rename.php" method="get">
-				<div class ="form-group">
-					<div class="input-group">
-						<span class="input-group-addon" id="sizing-addon1">
-							<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-						</span>
-						<input type="text" id="deckname" class="form-control" value="<?php echo getDeckName(); ?>" name="deckname" />
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">
-							<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> デッキ名変更</button>
-						</span>
-					</div><!-- /input-group -->
-					<?php 
-						if ($_GET['search']) {
-							echo '<input type="hidden" id="search" name="deck" value='.h($_GET['search']).' />';
-						}
-						if ($_GET['deck']) {
-							echo '<input type="hidden" id="deck" name="deck" value='.h($_GET['deck']).' />';
-						}
-					?>
-				</div>
-			</form>
-			<div class="row">
-				<!-- Show Arthur Selector -->
-				<div class="col-sm-2">
-				<div class="btn-group">
-					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-					<?php echo getArthurType(); ?>
-					<span class="caret"></span>
-					</button>
-					<?php showArthurList(); ?>
-				</div>
-				</div>
-				<!-- Show Status -->
-				<div class="col-sm-10">
-				<?php showStatus(); ?>
-				</div>
-			</div>
-
-            <!-- MyDeck Table View -->
-            <?php showDeck(); ?>
+				<h2>マイデッキの選択</h2>
+					ページの最上部にあるナビゲーションバーの
+					<span class="glyphicon glyphicon-book" aria-hidden="true"></span> デッキリスト <span class="caret"></span>
+					からマイデッキを選択します。<br>
+					デッキは10個まで保存しておくことができます。<br>
+					<img src="help1.png" class="img-thumbnail">
+				<h2>デッキの構築</h2>
+					<h3>カードの検索</h3>
+						カード検索でカード名を検索してデッキに追加するカードの候補を表示します。
+						キーワードは部分一致検索ができます。
+						指定できるキーワードはひとつだけです。
+						「騎士」などの称号はキーワードに指定できません。<br>
+						<img src="help2.png" class="img-thumbnail">
+					<h3>カードの追加</h3>
+						検索して表示したカードの候補の中からデッキに追加するカードを選び
+						<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+						アイコンをクリックしてデッキに追加します。<br>
+						<img src="help3.png" class="img-thumbnail">
+					<h3>カードの削除</h3>
+						デッキのカード一覧から削除するカードを選び
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						アイコンをクリックしてデッキから削除します。<br>
+						<img src="help4.png" class="img-thumbnail">
+					<h3>デッキ名の変更</h3>
+						デッキに名前をつけることができます。
+						デッキ名を編集し
+						<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> デッキ名変更
+						ボタンをクリックして名前の変更を確定します。<br>
+						<img src="help5.png" class="img-thumbnail">
+					<h3>アーサータイプの選択</h3>
+						ドロップダウンリストからアーサータイプを選択します。
+						選択したアーサータイプはステータスに反映されます。
+						ステータスは上限値で設定されます。<br>
+						<img src="help6.png" class="img-thumbnail">
+				<h2>データの保存と削除</h2>
+					<h3>データの保存</h3>
+						データはCOOKIEに自動的に保存されます。
+						COOKIEはブラウザにユーザデータを保存するための領域です。
+						COOKIEに保存されるデータは最大でも数KB程度です。
+					<h3>データの削除</h3>
+						ブラウザでCOOKIEを削除するとデッキデータは初期化されます。
+						デッキデータはサーバには保存されませんのでご注意ください。
             </div>
-            
-            <!-- 広告 -->
-			<a href="http://px.a8.net/svt/ejp?a8mat=2HHPCT+AG9ZVE+6HW+1NNF3L" target="_blank">
-			<img border="0" width="468" height="60" alt="" src="http://www25.a8.net/svt/bgt?aid=150311837632&wid=002&eno=01&mid=s00000000842010019000&mc=1"></a>
-			<img border="0" width="1" height="1" src="http://www16.a8.net/0.gif?a8mat=2HHPCT+AG9ZVE+6HW+1NNF3L" alt="">
-			
-            <!-- Search Card -->
-			<h2>カード検索</h2>
-			<form action="<?php SITE_URL ?>" method="get">
-				<div class ="form-group">
-					<div class="input-group">
-						<span class="input-group-addon" id="sizing-addon1">
-							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-						</span>
-						<input type="text" id="cardname" class="form-control" placeholder="<?php echo getPlaceholder(); ?>" name="search" />
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">
-							<span class="glyphicon glyphicon-search" aria-hidden="true"></span> カード検索</button>
-						</span>
-					</div>
-					<?php 
-						if ($_GET['deck']) {
-							echo '<input type="hidden" id="deck" name="deck" value='.h($_GET['deck']).' />';
-						}
-					?>
-				</div>
-			</form>
-			<div class="panel panel-info">
-				<div class="panel-heading">検索Tips</div>
-  				<div class="panel-body">
-  					<ul>
-  					<li>カードを検索して、選択したカードをデッキに追加します。</li>
-  					<li>部分一致検索ができます。</li>
-  					<li>複数のキーワードは指定できません。</li>
-    				<li>称号（騎士など）は検索条件に含められません。</li>
-    				</ul>
-  				</div>
-			</div>
-            
-            <!-- Show Search Result -->
-            <?php showSearchResult(); ?>
-            
 		</div>
 		<div class="col-sm-3">
 			<!-- 広告 -->
@@ -488,7 +439,7 @@ function showDeck() {
     echo '<table class="table table-striped table-bordered">';
     echo '<thead>';
     echo '<tr>';
-    echo '<th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>';
+    echo '<th>称号</th>';
     echo '<th>名前</th>';
     echo '<th>レア</th>';
     echo '<th>コスト</th>';
@@ -552,7 +503,7 @@ function showDeck() {
         } else {
             $line = '';
             $line .= '<tr>';
-            for($i=0;$i<11;$i++) {
+            for($i=0;$i<13;$i++) {
                 $line .= '<td>&nbsp;</td>';
             }
             $line .= '</tr>';
