@@ -53,13 +53,27 @@ session_start();
 <div class="container" style="background:white;">
 	<div class="row">
 		<div class="col-sm-9">
+		
+			<!-- 広告 -->
+			<div style="background:white;">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- excalibur2 - メイン上部 -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-5876045190636501"
+				     data-ad-slot="6412769278"
+				     data-ad-format="auto"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+			
 			<div class="panel panel-info">
 				<div class="panel-heading">お知らせ</div>
   				<div class="panel-body">
-    				乖離性ミリオンアーサーのデッキシミュレータです。デッキ構築やメモとしてご利用ください。
+    				乖離性ミリオンアーサーのデッキシミュレータです。デッキ構築やメモとしてご利用ください。<br>
   				</div>
 			</div>
-			
 			<!-- Deck Layer -->
 			<div style="background:white;">
 			<!-- Show Deck Name -->
@@ -107,9 +121,16 @@ session_start();
             </div>
             
             <!-- 広告 -->
-			<a href="http://px.a8.net/svt/ejp?a8mat=2HHPCT+AG9ZVE+6HW+1NNF3L" target="_blank">
-			<img border="0" width="468" height="60" alt="" src="http://www25.a8.net/svt/bgt?aid=150311837632&wid=002&eno=01&mid=s00000000842010019000&mc=1"></a>
-			<img border="0" width="1" height="1" src="http://www16.a8.net/0.gif?a8mat=2HHPCT+AG9ZVE+6HW+1NNF3L" alt="">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- excalibur2 - 中央部 -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-5876045190636501"
+			     data-ad-slot="7610300879"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
 			
             <!-- Search Card -->
 			<h2>カード検索</h2>
@@ -119,12 +140,20 @@ session_start();
 						<span class="input-group-addon" id="sizing-addon1">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</span>
-						<input type="text" id="cardname" class="form-control" placeholder="<?php echo getPlaceholder(); ?>" name="search" />
+						<input type="text" id="cardname" class="form-control" placeholder="カード名" name="search" value="<?php echo getSearchValue(); ?>" />
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="submit">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span> カード検索</button>
 						</span>
 					</div>
+					<?php
+						if (isset($_GET['arthur'])) {
+							$arthur = $_GET['arthur'];
+						} else {
+							$arthur = "";
+						}
+						showRadio($arthur);
+					?>
 					<?php 
 						if ($_GET['deck']) {
 							echo '<input type="hidden" id="deck" name="deck" value='.h($_GET['deck']).' />';
@@ -138,6 +167,7 @@ session_start();
   					<ul>
   					<li>カードを検索して、選択したカードをデッキに追加します。</li>
   					<li>部分一致検索ができます。</li>
+  					<li>キーワードに「全部」と入力すると選択したアーサーの全てのカードが表示されます。</li>
   					<li>複数のキーワードは指定できません。</li>
     				<li>称号（騎士など）は検索条件に含められません。</li>
     				</ul>
@@ -147,13 +177,32 @@ session_start();
             <!-- Show Search Result -->
             <?php showSearchResult(); ?>
             
+            <!-- 広告 -->
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- excalibur2 - フッタ -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-5876045190636501"
+			     data-ad-slot="4656834478"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
 		</div>
 		<div class="col-sm-3">
 			<!-- 広告 -->
-			<a href="http://px.a8.net/svt/ejp?a8mat=2HHPCT+AG9ZVE+6HW+1NN7DT" target="_blank">
-			<img border="0" width="250" height="250" alt="" src="http://www25.a8.net/svt/bgt?aid=150311837632&wid=002&eno=01&mid=s00000000842010018000&mc=1"></a>
-			<img border="0" width="1" height="1" src="http://www10.a8.net/0.gif?a8mat=2HHPCT+AG9ZVE+6HW+1NN7DT" alt="">
-			管理人がハマってるゲームです。「もっちり9」で戦友登録お願いします。
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- excalibur2 - 右上ver2 -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-5876045190636501"
+			     data-ad-slot="1842968874"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			
 		</div>
 	</div>
 </div>
@@ -228,16 +277,47 @@ function showArthurList() {
 }
 
 /**
- * 検索窓のプレースホルダを取得する 
+ * 検索窓の入力値を取得する 
  * 
  */
-function getPlaceholder() {
+function getSearchValue() {
 	if ($_GET['search']) {
-	    $placeholder = h($_GET['search']);
+	    $searchvalue = h($_GET['search']);
 	} else {
-	    $placeholder = 'カード名';
+	    $searchvalue = '';
 	}
-	return $placeholder;
+	return $searchvalue;
+}
+
+/**
+ * 検索のラジオボタンを表示する
+ * 
+ */
+function showRadio($arthur) {
+	// $arthurが傭兵、富豪、盗賊、歌姫のいずれかでなければ、デフォルトの傭兵にする
+	if (!($arthur=="傭兵" || $arthur=="富豪" || $arthur=="盗賊" || $arthur=="歌姫")) {
+		$arthur="傭兵";
+	}
+	echo '<label class="radio-inline">';
+	echo '<input type="radio" name="arthur" id="inlineRadio1" value="傭兵" ';
+	if ($arthur=="傭兵") echo 'checked';
+	echo '> 傭兵';
+	echo '</label>';
+	echo '<label class="radio-inline">';
+	echo '<input type="radio" name="arthur" id="inlineRadio2" value="富豪" ';
+	if ($arthur=="富豪") echo 'checked';
+	echo '> 富豪';
+	echo '</label>';
+	echo '<label class="radio-inline">';
+	echo '<input type="radio" name="arthur" id="inlineRadio3" value="盗賊" ';
+	if ($arthur=="盗賊") echo 'checked';
+	echo '> 盗賊';
+	echo '</label>';
+	echo '<label class="radio-inline">';
+	echo '<input type="radio" name="arthur" id="inlineRadio4" value="歌姫" ';
+	if ($arthur=="歌姫") echo 'checked';
+	echo '> 歌姫';
+	echo '</label>';
 }
 
 /**
@@ -317,8 +397,20 @@ function showSearchResult() {
 	    } else {
 	        $deckNum = '1';
 	    }
+	    if($_GET['arthur']){
+	    	$arthur = $_GET['arthur'];
+	    	if (!($arthur=="傭兵" || $arthur=="富豪" || $arthur=="盗賊" || $arthur=="歌姫")) {
+	    		$arthur = escapeSql("傭兵");
+	    	}
+	    } else {
+	    	$arthur = escapeSql("傭兵");
+	    }
         $name = escapeSql($_GET['search']);
-        $sql = 'select * from cards where Name like "%'.$name.'%" ';
+        if ($name=="全部") {
+        	$sql = 'select * from cards where Arthur = "'.$arthur.'" order by Rare desc, Cost asc';
+        } else {
+        	$sql = 'select * from cards where Arthur = "'.$arthur.'" and Name like "%'.$name.'%" order by Rare desc, Cost asc';
+        }
         $dbh = connectDb();
         $stmt = $dbh->query("SET NAMES utf8;");
         $stmt = $dbh->prepare($sql);

@@ -5,15 +5,39 @@ require_once('functions.php');
 
 session_start();
 
-// Get Card URL List
+// Get Page List
 $dom = new DOMDocument;
 @$dom->loadHTMLFile('http://million-arthurs.gamerch.com/カードコレクション順');
 $xpath = new DOMXPath($dom);
+unset($pagelist);
+$is_listed=false;
+foreach ($xpath->query('//section[@id="js_async_main_column_text"]/a') as $url) {
+	$url = $xpath->evaluate('string(@href)',$url);
+	$url = mb_substr($url,0,mb_strpos($url,'#'));
+	if (isset($pagelist)) {
+		foreach ($pagelist as $page) {
+			if ($page == $url) {
+				$is_listed=true;
+			}
+		}
+	}
+	if ($is_listed == false) {
+		$pagelist[] = $url;
+	}
+	$is_listed = false;
+}
+
+// Get Card URL List
 unset($urllist);
-foreach ($xpath->query('//div[@class="card_list"]/table/tbody/tr/td') as $url) {
-	if ($xpath->evaluate('string(a/@href)',$url) != '#top' &&
-	    $xpath->evaluate('string(a/@href)',$url) != 'http://million-arthurs.gamerch.com/【二つ名】騎士名') {
-	    $urllist[] = $xpath->evaluate('string(a/@href)',$url);
+foreach ($pagelist as $page) {
+	$dom = new DOMDocument;
+	@$dom->loadHTMLFile($page);
+	$xpath = new DOMXPath($dom);
+	foreach ($xpath->query('//div[@class="card_list"]/table/tbody/tr/td') as $url) {
+		if ($xpath->evaluate('string(a/@href)',$url) != '#top' &&
+		    $xpath->evaluate('string(a/@href)',$url) != 'http://million-arthurs.gamerch.com/【二つ名】騎士名') {
+		    $urllist[] = $xpath->evaluate('string(a/@href)',$url);
+		}
 	}
 }
 
@@ -146,7 +170,7 @@ function getCardData($url, $number) {
     				BonusHeal='$bonusHeal',
     				SkillNormal='$skillNormal',
     				SkillSpecial='$skillSpecial'
-    			where Title='$title' and Name='$name' ";
+    			where Title = '$title' and Name = '$name' ";
     } else {
     	//insert
     	$sql = "insert into cards (Number,Title,Name,Rare,Cost,Arthur,Type,Attribute,BonusHP,BonusPhysical,BonusMagic,BonusHeal,SkillNormal,SkillSpecial)

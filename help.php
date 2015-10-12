@@ -53,6 +53,21 @@ session_start();
 <div class="container" style="background:white;">
 	<div class="row">
 		<div class="col-sm-9">
+		
+			<!-- 広告 -->
+			<div style="background:white;">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- excalibur2 - メイン上部 -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-5876045190636501"
+				     data-ad-slot="6412769278"
+				     data-ad-format="auto"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+			
 			<!-- Help Layer -->
 			<div style="background:white;">
 				<h2>マイデッキの選択</h2>
@@ -98,13 +113,32 @@ session_start();
 						ブラウザでCOOKIEを削除するとデッキデータは初期化されます。
 						デッキデータはサーバには保存されませんのでご注意ください。
             </div>
+            
+            <!-- 広告 -->
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- excalibur2 - フッタ -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-5876045190636501"
+			     data-ad-slot="4656834478"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			
 		</div>
 		<div class="col-sm-3">
 			<!-- 広告 -->
-			<a href="http://px.a8.net/svt/ejp?a8mat=2HHPCT+AG9ZVE+6HW+1NN7DT" target="_blank">
-			<img border="0" width="250" height="250" alt="" src="http://www25.a8.net/svt/bgt?aid=150311837632&wid=002&eno=01&mid=s00000000842010018000&mc=1"></a>
-			<img border="0" width="1" height="1" src="http://www10.a8.net/0.gif?a8mat=2HHPCT+AG9ZVE+6HW+1NN7DT" alt="">
-			管理人がハマってるゲームです。「もっちり9」で戦友登録お願いします。
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- excalibur2 - 右上ver2 -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-5876045190636501"
+			     data-ad-slot="1842968874"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
 		</div>
 	</div>
 </div>

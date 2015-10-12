@@ -6,7 +6,7 @@ use Excalibur;
 create table cards (
 	Number smallint primary key,
 	Title varchar(16) not null,
-    Name varchar(16) not null,
+    Name varchar(32) not null,
     Rare enum('1','2','3','4','5','6') not null,
     Cost enum('1','2','3','4','5') not null,
     Arthur enum('傭兵','富豪','盗賊','歌姫') not null,
